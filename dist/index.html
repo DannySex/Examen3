@@ -1,19 +1,91 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./public/img/favico.png" type="image/x-icon">
-    <title>Examen Unidad 4</title>
+    <title>Evaluador de Expresiones Regulares</title>
 </head>
+
 <body>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col text-center">
-                <h1 class="text-danger">Plantilla Examen Unidad 4</h1>
+
+    <div id="miAlerta" class="alert alert-warning" style="display: none;">
+        Mensaje de alerta
+    </div>
+
+    <div class="container mt-5">
+
+        <h2 class="text-center mb-4">Evaluador de ER</h2>
+
+        <div class="form-group mb-3">
+            <label for="txtRegex" class="form-label">
+                Expresión Regular (ER):
+            </label>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <input
+                        type="text"
+                        id="txtRegex"
+                        class="form-control"
+                        placeholder="Ej. ^[0-9]+$"
+                    >
+                </div>
+
+                <div class="col-md-3">
+                    <input
+                        type="text"
+                        id="txtFlags"
+                        class="form-control"
+                        value="g"
+                        placeholder="Flags"
+                    >
+                </div>
             </div>
         </div>
-    </div>    
+
+        <div class="form-group mb-3">
+            <label for="txtTexto" class="form-label">
+                Texto a evaluar:
+            </label>
+
+            <textarea
+                id="txtTexto"
+                class="form-control"
+                rows="4"
+                placeholder="Escribe aquí tu texto..."
+            ></textarea>
+        </div>
+
+        <div class="mb-3">
+            <button
+                class="btn btn-primary"
+                onclick="compararRegex()"
+            >
+                Comparar
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="limpiarPantalla()"
+            >
+                Limpiar Pantalla
+            </button>
+        </div>
+
+        <div id="divResultado" class="resultado">
+            <strong>Resultado:</strong>
+
+            <span id="lblMensaje">
+                Esperando datos...
+            </span>
+
+            <p id="lblCoincidencias"></p>
+        </div>
+
+    </div>
+
     <script src="./bundle.js"></script>
+
 </body>
 </html>
